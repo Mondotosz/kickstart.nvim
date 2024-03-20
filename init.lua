@@ -148,6 +148,8 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.opt.expandtab = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -185,10 +187,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Move lines keymaps
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>', {desc = 'Move line(s) down'})
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>', {desc = 'Move line(s) up'})
-vim.keymap.set('v', '<A-j>', ':m \'>+1<CR>gv', {desc = 'Move line(s) down'})
-vim.keymap.set('v', '<A-k>', ':m \'<-2<CR>gv', {desc = 'Move line(s) up'})
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>', { desc = 'Move line(s) down' })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>', { desc = 'Move line(s) up' })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv", { desc = 'Move line(s) down' })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv", { desc = 'Move line(s) up' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -809,7 +811,7 @@ require('lazy').setup {
           keymaps = {
             node_incremental = 'v',
             node_decremental = 'V',
-          }
+          },
         },
       }
 

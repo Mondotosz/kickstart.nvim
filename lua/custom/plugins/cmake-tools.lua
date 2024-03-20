@@ -2,10 +2,10 @@ return {
   'Civitasv/cmake-tools.nvim',
   ft = { 'c', 'cmake', 'cpp' },
   keys = {
-    {"<leader>cc", ":CMakeBuild<cr>", desc = "Cmake build"},
-    {"<leader>cr", ":CMakeRun<cr>", desc = "Cmake run"},
-    {"<leader>ct", ":CMakeSelectBuildTarget<cr>", desc = "Cmake select build target"},
-    {"<leader>cT", ":CMakeSelectBuildType<cr>", desc = "Cmake select build type"},
+    { '<leader>cc', ':CMakeBuild<cr>', desc = 'Cmake build' },
+    { '<leader>cr', ':CMakeQuickRun<cr>', desc = 'Cmake run' },
+    { '<leader>ct', ':CMakeSelectBuildTarget<cr>', desc = 'Cmake select build target' },
+    { '<leader>cT', ':CMakeSelectBuildType<cr>', desc = 'Cmake select build type' },
   },
   dependencies = { 'akinsho/toggleterm.nvim', 'stevearc/overseer.nvim' },
   config = function()
@@ -20,7 +20,7 @@ return {
         default_opts = {
           toggleterm = {
             direction = 'float', -- 'vertical' | 'horizontal' | 'tab' | 'float'
-            close_on_exit = true, -- whether close the terminal when exit
+            close_on_exit = false, -- whether close the terminal when exit
             auto_scroll = true, -- whether auto scroll to the bottom
           },
         },
