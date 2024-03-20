@@ -1,6 +1,6 @@
 return {
   'Civitasv/cmake-tools.nvim',
-  ft = { 'c', 'cmake' },
+  ft = { 'c', 'cmake', 'cpp' },
   keys = {
     {"<leader>cc", ":CMakeBuild<cr>", desc = "Cmake build"},
     {"<leader>cr", ":CMakeRun<cr>", desc = "Cmake run"},
@@ -12,8 +12,8 @@ return {
     local cmake = require 'cmake-tools'
     cmake.setup {
       cmake_build_directory = 'build/${variant:buildType}',
-      cmake_soft_link_compile_commands = false, -- this will automatically make a soft link from compile commands file to project root dir
-      cmake_compile_commands_from_lsp = true,
+      cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
+      cmake_compile_commands_from_lsp = false,
       cmake_executor = {
         name = 'toggleterm',
         opts = {},
