@@ -33,6 +33,14 @@ return {
       cmake_build_directory = 'build/${variant:buildType}',
       cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
       cmake_compile_commands_from_lsp = false,
+      cmake_dap_configuration = { -- debug settings for cmake
+        name = 'cpp',
+        type = 'codelldb',
+        request = 'launch',
+        stopOnEntry = false,
+        runInTerminal = true,
+        console = 'integratedTerminal',
+      },
       cmake_executor = {
         name = 'quickfix',
         opts = {},
