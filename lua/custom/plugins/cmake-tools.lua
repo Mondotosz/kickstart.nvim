@@ -2,7 +2,7 @@ return {
   'Civitasv/cmake-tools.nvim',
   ft = { 'c', 'cmake', 'cpp' },
   keys = {
-    { '<leader>cc', ':CMakeBuild<cr>', desc = 'Cmake build' },
+    { '<leader>cc', ':w<cr>:CMakeBuild<cr>', desc = 'Cmake build' },
     { '<leader>cr', ':CMakeQuickRun<cr>', desc = 'Cmake run' },
     { '<leader>ct', ':CMakeSelectBuildTarget<cr>', desc = 'Cmake select build target' },
     { '<leader>cT', ':CMakeSelectBuildType<cr>', desc = 'Cmake select build type' },
