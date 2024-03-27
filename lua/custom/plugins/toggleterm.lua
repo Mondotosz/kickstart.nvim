@@ -13,13 +13,14 @@ return {
       vim.keymap.set('n', '<leader>t' .. i, ':ToggleTerm ' .. i .. ' direction=float name=' .. i .. '<cr>', { desc = 'ToggleTerm: Show terminal ' .. i })
     end
 
-    vim.keymap.set({'v','i','t','n'}, '¬', function() term.toggle_command 'direction=float' end, {desc = 'ToggleTerm: Toggle terminal'})
-    vim.keymap.set('n', '<leader>ts',':TermSelect<cr>', {desc = 'ToggleTerm: Select terminal'})
+    vim.keymap.set({ 'v', 'i', 't', 'n' }, '¬', function()
+      term.toggle_command 'direction=float'
+    end, { desc = 'ToggleTerm: Toggle terminal' })
+    vim.keymap.set('n', '<leader>ts', ':TermSelect<cr>', { desc = 'ToggleTerm: Select terminal' })
 
     -- NOTE: Custom terminals
     local Terminal = require('toggleterm.terminal').Terminal
     local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float' }
-
 
     vim.keymap.set('n', '<leader>gg', function()
       lazygit:toggle()
