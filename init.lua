@@ -704,9 +704,9 @@ require('lazy').setup {
         dependencies = {
           'zbirenbaum/copilot.lua',
         },
-        config = function ()
+        config = function()
           require('copilot_cmp').setup()
-        end
+        end,
       },
     },
     config = function()
@@ -829,9 +829,9 @@ require('lazy').setup {
 
       require('mini.pairs').setup()
       require('mini.comment').setup()
-      
+
       require('mini.files').setup()
-      vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<cr>' , {desc = 'Files'})
+      vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<cr>', { desc = 'Files' })
     end,
   },
 
