@@ -658,6 +658,16 @@ require('lazy').setup {
     },
   },
 
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    opts = { suggestion = { enabled = false }, panel = { enabled = false } },
+    config = function(opts)
+      require('copilot').setup(opts)
+    end,
+  },
+
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -688,6 +698,16 @@ require('lazy').setup {
       --    for various frameworks/libraries/etc. but you will have to
       --    set up the ones that are useful for you.
       -- 'rafamadriz/friendly-snippets',
+
+      {
+        'zbirenbaum/copilot-cmp',
+        dependencies = {
+          'zbirenbaum/copilot.lua',
+        },
+        config = function ()
+          require('copilot_cmp').setup()
+        end
+      },
     },
     config = function()
       -- See `:help cmp`
@@ -743,6 +763,7 @@ require('lazy').setup {
           end, { 'i', 's' }),
         },
         sources = {
+          { name = 'copilot' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
@@ -808,6 +829,9 @@ require('lazy').setup {
 
       require('mini.pairs').setup()
       require('mini.comment').setup()
+      
+      require('mini.files').setup()
+      vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<cr>' , {desc = 'Files'})
     end,
   },
 

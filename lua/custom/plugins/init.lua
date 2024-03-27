@@ -3,5 +3,5 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {import = 'custom.plugins.git'}
+  { import = 'custom.plugins.git' },
 }
