@@ -1,28 +1,28 @@
 return {
-    'akinsho/toggleterm.nvim',
-    version = '*',
-    opts = {
-      direction = 'float',
-    },
-    config = function()
-      local term = require 'toggleterm'
-      term.setup {}
+  'akinsho/toggleterm.nvim',
+  version = '*',
+  opts = {
+    direction = 'float',
+  },
+  config = function()
+    local term = require 'toggleterm'
+    term.setup {}
 
-      -- toggle main term
-      vim.keymap.set({ 'v', 'i', 't' }, '¬', function()
-        term.toggle_command 'direction=float'
-      end, { desc = 'ToggleTerm: Open terminal' })
+    -- numbered term
+    for i = 1, 9 do
+      vim.keymap.set('n', '<leader>t' .. i, ':ToggleTerm ' .. i .. ' direction=float name=' .. i .. '<cr>', { desc = 'ToggleTerm: Show terminal ' .. i })
+    end
 
-      -- select term
-      vim.keymap.set('n', '<leader>ts', ':TermSelect<cr>', { desc = 'ToggleTerm: Select terminal' })
+    vim.keymap.set({'v','i','t','n'}, '¬', function() term.toggle_command 'direction=float' end, {desc = 'ToggleTerm: Toggle terminal'})
+    vim.keymap.set('n', '<leader>ts',':TermSelect<cr>', {desc = 'ToggleTerm: Select terminal'})
 
-      -- numbered term
-      for i = 1, 9 do
-        vim.keymap.set('n', '<leader>t' .. i, ':ToggleTerm ' .. i .. ' direction=float name=' .. i .. '<cr>', { desc = 'ToggleTerm: Show terminal ' .. i })
-      end
+    -- NOTE: Custom terminals
+    local Terminal = require('toggleterm.terminal').Terminal
+    local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float' }
 
-      -- toggle main term in normal mode
-      --  WARN: Must be the last keymap in this call
-      vim.keymap.set('n', '¬', ':ToggleTerm direction=float<cr>', { desc = 'ToggleTerm: Toggle terminal' })
-    end,
-  }
+
+    vim.keymap.set('n', '<leader>gg', function()
+      lazygit:toggle()
+    end, { desc = '[G]it Lazy[G]it' })
+  end,
+}
