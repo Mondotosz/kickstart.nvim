@@ -199,6 +199,9 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>', { desc = 'Move line(s) up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv", { desc = 'Move line(s) down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv", { desc = 'Move line(s) up' })
 
+vim.keymap.set('v', '>', '>gv', {desc = 'Indent selection right', noremap = true})
+vim.keymap.set('v', '<', '<gv', {desc = 'Indent selection left', noremap = true})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -883,6 +886,7 @@ require('lazy').setup {
   --
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
+  -- require 'kickstart.plugins.lint',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
