@@ -199,8 +199,8 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>', { desc = 'Move line(s) up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv", { desc = 'Move line(s) down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv", { desc = 'Move line(s) up' })
 
-vim.keymap.set('v', '>', '>gv', {desc = 'Indent selection right', noremap = true})
-vim.keymap.set('v', '<', '<gv', {desc = 'Indent selection left', noremap = true})
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent selection right', noremap = true })
+vim.keymap.set('v', '<', '<gv', { desc = 'Indent selection left', noremap = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -274,6 +274,9 @@ require('lazy').setup {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+    },
+    keys = {
+      { '<leader>gl', ':Gitsigns blame_line<cr>', desc = '[G]it blame [L]ine' },
     },
   },
 
@@ -647,6 +650,7 @@ require('lazy').setup {
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        json = { 'biome' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
