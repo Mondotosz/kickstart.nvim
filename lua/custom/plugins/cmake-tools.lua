@@ -2,7 +2,21 @@ return {
   'Civitasv/cmake-tools.nvim',
   ft = { 'c', 'cmake', 'cpp' },
   keys = {
-    { '<leader>cc', ':w<cr>:CMakeBuild<cr>', desc = 'Cmake build' },
+    {
+      '<leader>cc',
+      function()
+        local buf = vim.api.nvim_get_current_buf()
+
+        if vim.api.nvim_get_option_value('modifiable', { buf = buf }) and vim.api.nvim_get_option_value('modified', { buf = buf }) then
+          vim.api.nvim_command 'w'
+        end
+
+        vim.api.nvim_command 'CMakeBuild'
+        local cmake = require 'cmake-tools'
+        vim.notify('Building ' .. cmake.get_build_target() .. ' in ' .. cmake.get_build_type(), 'info')
+      end,
+      desc = 'Cmake build',
+    },
     { '<leader>cr', ':CMakeQuickRun<cr>', desc = 'Cmake run' },
     { '<leader>ct', ':CMakeSelectBuildTarget<cr>', desc = 'Cmake select build target' },
     { '<leader>cT', ':CMakeSelectBuildType<cr>', desc = 'Cmake select build type' },
