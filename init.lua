@@ -186,15 +186,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Move lines keymaps
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>', { desc = 'Move line(s) down' })
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>', { desc = 'Move line(s) up' })
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv", { desc = 'Move line(s) down' })
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv", { desc = 'Move line(s) up' })
-
-vim.keymap.set('v', '>', '>gv', { desc = 'Indent selection right', noremap = true })
-vim.keymap.set('v', '<', '<gv', { desc = 'Indent selection left', noremap = true })
-
 vim.keymap.set('n', '<leader>S', ':wa<cr>', {desc = '[S]ave files'})
 
 -- [[ Basic Autocommands ]]
@@ -837,6 +828,7 @@ require('lazy').setup {
       require('mini.pairs').setup()
       require('mini.comment').setup()
       require('mini.starter').setup()
+      require('mini.move').setup()
 
       require('mini.files').setup()
       vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<cr>', { desc = 'Files' })
