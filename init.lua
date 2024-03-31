@@ -186,7 +186,7 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<leader>S', ':wa<cr>', { desc = '[S]ave files' })
+vim.keymap.set('n', '<leader>S', '<cmd>wa<cr>', { desc = '[S]ave files' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -262,7 +262,7 @@ require('lazy').setup {
       },
     },
     keys = {
-      { '<leader>gl', ':Gitsigns blame_line<cr>', desc = '[G]it blame [L]ine' },
+      { '<leader>gl', '<cmd>Gitsigns blame_line<cr>', desc = '[G]it blame [L]ine' },
     },
   },
 
@@ -831,7 +831,7 @@ require('lazy').setup {
       require('mini.move').setup()
 
       require('mini.files').setup()
-      vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<cr>', { desc = 'Files' })
+      vim.keymap.set('n', '<leader>f', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Files' })
     end,
   },
 
