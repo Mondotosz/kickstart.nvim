@@ -2,8 +2,8 @@ return {
   'akinsho/bufferline.nvim',
   version = '*',
   keys = {
-    { ']b', ':BufferLineCycleNext<CR>', desc = 'Next Buffer' },
-    { '[b', ':BufferLineCyclePrev<CR>', desc = 'Previous Buffer' },
+    { ']b', '<cmd>BufferLineCycleNext<CR>', desc = 'Next Buffer' },
+    { '[b', '<cmd>BufferLineCyclePrev<CR>', desc = 'Previous Buffer' },
     {
       '<leader>q',
       function()
@@ -16,7 +16,7 @@ return {
       end,
       desc = '[Q]uit buffer',
     },
-    { '<leader>Q', ':BufferLineCloseOthers<CR>', desc = '[Q]uit buffer' },
+    { '<leader>Q', '<cmd>BufferLineCloseOthers<CR>', desc = '[Q]uit buffer' },
   },
   event = 'BufWinEnter',
   opts = {

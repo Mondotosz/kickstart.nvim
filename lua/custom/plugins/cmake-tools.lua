@@ -35,9 +35,9 @@ return {
       end,
       desc = 'Cmake build',
     },
-    { '<leader>cr', ':CMakeQuickRun<cr>', desc = 'Cmake run' },
-    { '<leader>ct', ':CMakeSelectBuildTarget<cr>', desc = 'Cmake select build target' },
-    { '<leader>cT', ':CMakeSelectBuildType<cr>', desc = 'Cmake select build type' },
+    { '<leader>cr', '<cmd>CMakeQuickRun<cr>', desc = 'Cmake run' },
+    { '<leader>ct', '<cmd>CMakeSelectBuildTarget<cr>', desc = 'Cmake select build target' },
+    { '<leader>cT', '<cmd>CMakeSelectBuildType<cr>', desc = 'Cmake select build type' },
     {
       '<leader>cq',
       function()

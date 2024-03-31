@@ -38,7 +38,7 @@ return {
       ensure_buffer_saved()
       term.toggle_command 'direction=float'
     end, { desc = 'ToggleTerm: Toggle terminal' })
-    vim.keymap.set('n', '<leader>ts', ':TermSelect<cr>', { desc = 'ToggleTerm: Select terminal' })
+    vim.keymap.set('n', '<leader>ts', '<cmd>TermSelect<cr>', { desc = 'ToggleTerm: Select terminal' })
 
     -- NOTE: Custom terminals
     local Terminal = require('toggleterm.terminal').Terminal
