@@ -13,7 +13,7 @@ return {
 
         vim.api.nvim_command 'CMakeBuild'
         local cmake = require 'cmake-tools'
-        vim.notify('Building ' .. cmake.get_build_target() .. ' in ' .. cmake.get_build_type(), 'info')
+        vim.notify('Building ' .. cmake.get_build_target() .. ' in ' .. cmake.get_build_type(), vim.log.levels.INFO)
       end,
       desc = 'Cmake build',
     },
