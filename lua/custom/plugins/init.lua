@@ -5,4 +5,5 @@
 return {
   { import = 'custom.plugins.git' },
   { import = 'custom.plugins.buffers' },
+  { import = 'custom.plugins.ui' },
 }
