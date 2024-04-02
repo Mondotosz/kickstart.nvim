@@ -11,5 +11,6 @@ return {
   end,
   keys = {
     { '<leader>sp', '<Cmd>Telescope projects<CR>', desc = '[S]earch [P]rojects' },
+    { '<leader>pa', '<Cmd>ProjectRoot<CR>', desc = '[P]rojects [A]dd' },
   },
 }
